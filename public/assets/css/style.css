@@ -2,7 +2,9 @@ body {
     background-color: black;
     font-family: 'B612', sans-serif;
     background-image: url("../../assets/images/typewriter-blog2.jpg");
-    /* background-size: cover; */
+    background-position: center;
+  background-size: cover;
+    
     color: white;
 }
 
@@ -14,12 +16,11 @@ body {
 }
 
 .jumbotron {
-background-image: url("../../assets/images/newspaper1.jpg");
+background-image: url("../../assets/images/newspaper2.jpg");
 
  font-family: 'Martel', serif;
- font-size: 39px;
+ font-size: 40px;
  font-weight: bolder;
- /* background-color: brown; */
 
 }
 
@@ -30,6 +31,7 @@ img {
 h3 {
     font-size: 45px;
     font-weight: bold;
+    text-shadow: 4px 3px 0px black;
     padding: 5px;
 }
 
@@ -41,9 +43,9 @@ li, ul {
     color: white;
 }
 
-.navbar {
+.navbar{
     font-weight: bold;
-    
+    background-color: rgb(40, 100, 189);
     
     
 }
@@ -63,16 +65,9 @@ li {
 }
 
 
-img {
-
-}
-
-.text-center {
-    background-color: rgb(219, 152, 152)
-}
 
 .panel {
-        background-color: rgb(165, 189, 224);
+        background-color: rgb(211, 210, 168);
 
 }
 

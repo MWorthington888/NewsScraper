@@ -19,7 +19,7 @@ app.get("/scrape", function (req, res) {
   // request("https://www.daytondailynews.com/news/ohio/", function (error, response, html) {
 
   
-  request("http://freebeacon.com/columns/", function (error, response, html) {
+  request("https://www.nytimes.com/section/food/", function (error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
 
@@ -28,11 +28,13 @@ app.get("/scrape", function (req, res) {
       // Save an empty result object
       var result = {};
       // Add the text and href of every link, and save them as properties of the result object
-   
+      result.title = $(this).children(".story-body").children("h2").text();
+      result.link = $(this).children(".story-body").children("h2").children("a").attr("href");
+      result.condensed = $(this).children(".story-body").children(".summary").text();
 
-      result.title = $(this).children("header").children("h2").text();
-      result.link = $(this).children("header").children("h2").children("a").attr("href");
-      result.condensed = $(this).children(".subheadline").children("a").text();
+      // result.title = $(this).children("header").children("h2").text();
+      // result.link = $(this).children("header").children("h2").children("a").attr("href");
+      // result.condensed = $(this).children(".subheadline").children("a").text();
 
       // result.released = $(this).children(".entry-meta").children("p").children("time").attr("datetime");
       // console.log("result.summary = ", result.released)

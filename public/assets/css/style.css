@@ -13,11 +13,10 @@ body {
 }
 
 .jumbotron {
-background-image: url("../../assets/images/newspaper2.jpg");
-
- font-family: 'Martel', serif;
- font-size: 40px;
- font-weight: bolder;
+    background-image: url("../../assets/images/newspaper2.jpg");
+    font-family: 'Martel', serif;
+    font-size: 40px;
+    font-weight: bolder;
 
 }
 

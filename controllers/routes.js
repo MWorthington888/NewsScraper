@@ -32,13 +32,6 @@ app.get("/scrape", function (req, res) {
       result.link = $(this).children(".story-body").children("h2").children("a").attr("href");
       result.condensed = $(this).children(".story-body").children(".summary").text();
 
-      // result.title = $(this).children("header").children("h2").text();
-      // result.link = $(this).children("header").children("h2").children("a").attr("href");
-      // result.condensed = $(this).children(".subheadline").children("a").text();
-
-      // result.released = $(this).children(".entry-meta").children("p").children("time").attr("datetime");
-      // console.log("result.summary = ", result.released)
-
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function (dbArticle) {
@@ -88,7 +81,7 @@ app.post("/articles/saved/:id", function (req, res) {
     });
 });
 
-// Post request to delete an saved status on article
+// Post request to delete a saved status on article
 app.post("/articles/delete/:id", function (req, res) {
   // Use the article id to find and update its saved boolean
   db.Article.findOneAndUpdate({
@@ -121,7 +114,7 @@ app.get("/saved", function (req, res) {
   });
 });
 
-// POST request for attaching note to its' corresping article id.
+// POST request for attaching note to its' corresponding article id.
 app.post("/notes/articles/:id", function (req, res) {
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)

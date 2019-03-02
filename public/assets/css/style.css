@@ -3,14 +3,11 @@ body {
     font-family: 'B612', sans-serif;
     background-image: url("../../assets/images/typewriter-blog2.jpg");
     background-position: center;
-  background-size: cover;
-    
+    background-size: cover;
     color: white;
 }
 
     
-
-
 #scrape {
     margin-top: 7px;
 }
@@ -36,7 +33,13 @@ h3 {
 }
 
 h4 {
+    color: black;
     font-weight: bold;
+}
+
+.modal-title {
+    background-color: aqua;
+
 }
 
 li, ul {
@@ -50,18 +53,10 @@ li, ul {
     
 }
 
-#navbar li, ul {
-    /* background-color: rgb(40, 100, 189); */
-    
-    font-weight: normal;
-        color: white;
 
-
-  
-}
 
 li {
-        color: white;
+        /* color: white; */
 }
 
 

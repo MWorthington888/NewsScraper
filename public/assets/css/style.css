@@ -1,19 +1,25 @@
 body {
-    background-color: rgb(197, 190, 157);
-  
+    background-color: black;
     font-family: 'B612', sans-serif;
+    background-image: url("../../assets/images/typewriter-blog2.jpg");
+    /* background-size: cover; */
+    color: white;
+}
 
     
-}
+
 
 #scrape {
     margin-top: 7px;
 }
 
 .jumbotron {
+background-image: url("../../assets/images/newspaper1.jpg");
+
  font-family: 'Martel', serif;
  font-size: 39px;
  font-weight: bolder;
+ /* background-color: brown; */
 
 }
 

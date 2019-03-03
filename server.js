@@ -4,12 +4,6 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var path = require("path");
 
-// Scraping tools
-// var request = require("request");
-// var cheerio = require("cheerio");
-// 
-// Require all models
-// var db = require("./models");
 var PORT = process.env.PORT || 3000;
 
 var routes= require("./controllers/routes.js");
@@ -36,7 +30,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 
-// Handlebars. :o
+// Handlebars ---------------------------------------------------------
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({

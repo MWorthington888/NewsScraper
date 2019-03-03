@@ -1,22 +1,13 @@
-//do we need axios here?
+var app = require("express").Router();
+var db = require("../models");
 
 // Scraping tools
 var request = require("request");
-var express = require("express");
 var cheerio = require("cheerio");
-
-var app = express.Router();
-// Require all models
-var db = require("../models");
-
-var PORT = process.env.PORT || 3000;
-
-
 // Routes
 // A GET route for scraping the Free Beacon website
 app.get("/scrape", function (req, res) {
   // First, we grab the body of the html with request
-  
   request("https://www.nytimes.com/section/food/", function (error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
@@ -29,7 +20,7 @@ app.get("/scrape", function (req, res) {
       result.title = $(this).children(".story-body").children("h2").text();
       result.link = $(this).children(".story-body").children("h2").children("a").attr("href");
       result.condensed = $(this).children(".story-body").children(".summary").text();
-
+      
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function (dbArticle) {
@@ -79,7 +70,18 @@ app.post("/articles/saved/:id", function (req, res) {
     });
 });
 
-// Post request to delete a saved status on article
+
+//delete the note
+app.delete("/delete/:id", (req, res) => {
+  console.log("id:"+ req.params.id );
+  db.Note.findOneAndRemove({ _id: req.params.id}, function(data){ 
+    res.send(data);
+
+  });
+ });
+
+
+// Post request to delete an saved status on article
 app.post("/articles/delete/:id", function (req, res) {
   // Use the article id to find and update its saved boolean
   db.Article.findOneAndUpdate({
@@ -102,24 +104,25 @@ app.post("/articles/delete/:id", function (req, res) {
 
 //GET request to go to savedArticles.handlebars and render saved articles
 app.get("/saved", function (req, res) {
+
   db.Article.find({
     "saved": true
-  }).populate("notes").exec(function (error, articles) {
+  }).populate("note").exec(function (error, articles) {
     var hbsObject = {
       article: articles
     };
+
+    console.log(articles);
     res.render("savedArticles", hbsObject);
   });
 });
 
-// POST request for attaching note to its' corresponding article id.
+// POST request for attaching note to its' corresping article id.
 app.post("/notes/articles/:id", function (req, res) {
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)
     .then(function (dbNote) {
-      // If a Note was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
-      // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
-      // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
+      
       return db.Article.findOneAndUpdate({
         _id: req.params.id
       }, {
@@ -139,6 +142,7 @@ app.post("/notes/articles/:id", function (req, res) {
     console.log("this is posted");
 });
 
+
 // Route for getting all Articles from the db
 // output is JSON plain text
 app.get("/articles", function (req, res) {
@@ -153,5 +157,4 @@ app.get("/articles", function (req, res) {
       res.json(err);
     });
 });
-
 module.exports = app;

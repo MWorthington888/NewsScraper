@@ -1,5 +1,5 @@
 //Scrape button from main.handlebars nav bar
-//exectues GET when the scrape request is clicked
+//exectues GET when the scrape request is clicked -------------------------------
 $("#scrape").on("click", function () {
     $.ajax({
       method: "GET",
@@ -10,7 +10,7 @@ $("#scrape").on("click", function () {
     })
   });
   
-  //Executes POST when save article button from home.handlebars
+  //Executes POST when save article button from home.handlebars -----------------------------
   $(".save").on("click", function () {
     console.log("clicked");
     var thisId = $(this).attr("data-id");
@@ -22,7 +22,7 @@ $("#scrape").on("click", function () {
     })
   });
   
-  //Executes POST when delete article button from the savedArticles.handlebars page
+  //Executes POST when delete article button from the savedArticles.handlebars page ------------------
   $(".delete").on("click", function () {
     console.log("delete clicked");
     var thisId = $(this).attr("data-id");
@@ -35,7 +35,7 @@ $("#scrape").on("click", function () {
   
   });
   
-  // Executes a POST when to save note
+  // Executes a POST when to save note ---------------------------------------------------
   $(document).on("click", ".saveNote", function () {
     console.log("sasve note is clicked");
     // Grab the id associated with the article from the submit button
@@ -75,4 +75,4 @@ $("#scrape").on("click", function () {
     }
   });
   
-  //
+  

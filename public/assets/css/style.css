@@ -6,7 +6,6 @@ body {
     background-size: cover;
     color: white;
 }
-
     
 #scrape {
     margin-top: 7px;
@@ -17,7 +16,6 @@ body {
     font-family: 'Martel', serif;
     font-size: 40px;
     font-weight: bolder;
-
 }
 
 img {
@@ -38,7 +36,6 @@ h4 {
 
 .modal-title {
     background-color: aqua;
-
 }
 
 li, ul {
@@ -48,21 +45,10 @@ li, ul {
 .navbar{
     font-weight: bold;
     background-color: rgb(40, 100, 189);
-    
-    
 }
-
-
-
-li {
-        /* color: white; */
-}
-
-
 
 .panel {
         background-color: rgb(211, 210, 168);
-
 }
 
 p {

@@ -1,8 +1,13 @@
 # Newsscraper
 
 ## Description
-
+----------------------
 Newsscraper is an app that extracts data by fetching a webpage and mining data from it. This particular version of Newsscraper has been setup to data-mine articles from The New YorK Times Food section. 
+
+
+## How Newsscraper is built
+-----------------------------------
+The app uses an NPM package called 'Cheerio' to scrape the NY Times Food Section website. Articles that meet certain parameters will be grabbed and stored in a Mongo Database, as well as being displayed to the user.
 
 Newsscraper will scrap and return all articles and display them in this format: 
 
@@ -13,22 +18,6 @@ Newsscraper will scrap and return all articles and display them in this format:
 
 
 
-
-
-
-## How to find the most trending brands!
-The app lets users select the name of their college/university and the season they want to choose. 
-Upon submitting the choices, the user is taken to the season page corresponding to the selection made.
-
-![](CollegeRunway_demo1.gif)
-
-The user then select the favorite brands under different fashion category and submits.
-
-Once the app gets all the feedback from the particular school selected by the user, it will display the most popular or trending brand for that specific university!!!
-
-
-## How is CollegeRunway built
-The app is built with HTML/CSS/Bootstrap
 The app will store every entry in the database, and updates and retrieves as requested!
 All the informations concerning the user are stored in the userTable.
 
@@ -43,6 +32,7 @@ To do so, __views__ are used. The views _which are virtual tables resulting of a
 Click here https://collegerunway.herokuapp.com/ to access to the deployed version of the app.
 
 ## Technologies used
+-----------------------------
  * Javascript
  * [Node.js]Download the latest version of Node https://nodejs.org/en/
  * Express
